@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
 //NEED TO POPULATE THIS WITH MOVIE DATA OR LINK TO LIBRARY
 export const MainView = () => {
-  const [movies, setMovies] = useState([
+  const [movies, setMovies] = useState([/*
   {
     id: 1,
     title: "Mission Impossible: dead reckoning",
@@ -32,9 +32,27 @@ export const MainView = () => {
      genre: "Animation",
      director: "Kyle Balda"
   }
-]);
+*/]);
 
   const [selectedMovie, setSelectedMovie] = useState(null);
+  useEffect(() => {
+    fetch("https://ghostwriter-movies-1d2fe76cf812.herokuapp.com/movies")
+      .then((response) => response.json())
+      .then((data) => {
+        const moviesFromApi = data.docs.map((doc) => {
+          return {
+            id: doc.key,
+            title: doc.title,
+            image: nul,
+            description: doc.description,
+            genre: doc.genre,
+            director: doc.director_name?.[0]
+          };
+        });
+
+        setMovies(moviesFromApi);
+      });
+  }, []);
 
   if (selectedMovie) {
     return (
