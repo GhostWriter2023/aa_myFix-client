@@ -27329,12 +27329,12 @@ const MainView = ()=>{
         fetch("https://ghostwriter-movies-1d2fe76cf812.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
             const moviesFromApi = data.docs.map((doc)=>{
                 return {
-                    id: doc.key,
-                    title: doc.title,
-                    image: nul,
-                    description: doc.description,
-                    genre: doc.genre,
-                    director: doc.director_name?.[0]
+                    id: data._id,
+                    title: data.title,
+                    image: data.image,
+                    description: data.description,
+                    genre: data.genre.name,
+                    director: data.director.name
                 };
             });
             setMovies(moviesFromApi);
@@ -27411,9 +27411,9 @@ _c = MovieCard;
 MovieCard.propTypes = {
     movie: (0, _propTypesDefault.default).shape({
         title: (0, _propTypesDefault.default).string.isRequired,
-        image: (0, _propTypesDefault.default).string.isRequired,
-        description: (0, _propTypesDefault.default).string.isRequired,
-        genre: (0, _propTypesDefault.default).string.isRequired,
+        image: (0, _propTypesDefault.default).string,
+        description: (0, _propTypesDefault.default).string,
+        genre: (0, _propTypesDefault.default).string,
         director: (0, _propTypesDefault.default).string
     }).isRequired,
     onMovieClick: (0, _propTypesDefault.default).func.isRequired

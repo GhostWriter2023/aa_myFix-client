@@ -41,12 +41,12 @@ export const MainView = () => {
       .then((data) => {
         const moviesFromApi = data.docs.map((doc) => {
           return {
-            id: doc.key,
-            title: doc.title,
-            image: nul,
-            description: doc.description,
-            genre: doc.genre,
-            director: doc.director_name?.[0]
+            id: data._id,
+            title: data.title,
+            image: data.image,
+            description: data.description,
+            genre: data.genre.name,
+            director: data.director.name
           };
         });
 
