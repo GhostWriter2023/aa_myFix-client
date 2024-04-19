@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 
 export const LoginView = ({ onLoggedIn }) => {
@@ -12,8 +13,8 @@ export const LoginView = ({ onLoggedIn }) => {
       access: username,
       secret: password
     };
-//MUST ADD HEROKU URL
-    fetch("https://herokuTBD", {
+
+    fetch("https://ghostwriter-movies-1d2fe76cf812.herokuapp.com/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
