@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
+import { LoginView } from "../login-view/login-view";
 
-//NEED TO POPULATE THIS WITH MOVIE DATA OR LINK TO LIBRARY
 export const MainView = () => {
   const [movies, setMovies] = useState([/*
   {
@@ -35,6 +35,8 @@ export const MainView = () => {
 */]);
 
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [user, setUser] = useState(null);
+
   useEffect(() => {
     fetch("https://ghostwriter-movies-1d2fe76cf812.herokuapp.com/movies")
       .then((response) => response.json())
@@ -43,7 +45,7 @@ export const MainView = () => {
           return {
             id: data._id,
             title: data.title,
-            image: data.image,
+            image: data.imageURL,
             description: data.description,
             genre: data.genre.name,
             director: data.director.name
@@ -54,18 +56,52 @@ export const MainView = () => {
       });
   }, []);
 
+  if (!user) {
+    return <LoginView onLoggedIn={(user) => setUser(user)} />;
+  }
+
   if (selectedMovie) {
     return (
-        <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+      <>
+        <button
+          onClick={() => {
+            setUser(null);
+          }}
+        >
+          Logout
+        </button>      
+        <MovieView
+          movie={selectedMovie}
+          onBackClick={() => setSelectedMovie(null)}
+        />
+      </>
       );
   }
 
   if (movies.length === 0) {
-    return <div>The list is empty!</div>;
+    return (
+      <>
+        <button
+          onClick={() => {
+            setUser(null);
+          }}
+        >
+          Logout
+        </button>
+        <div>The list is empty!</div>
+      </>
+    );
   }
 
   return (
     <div>
+      <button
+        onClick={() => {
+          setUser(null);
+        }}
+      >
+        Logout
+      </button>
       {movies.map((movie) => (
         <MovieCard
           key={movie.id}
