@@ -14,7 +14,7 @@ export const LoginView = ({ onLoggedIn }) => {
       secret: password
     };
 
-    fetch("https://ghostwriter-movies-1d2fe76cf812.herokuapp.com/", {
+    fetch("https://ghostwriter-movies-1d2fe76cf812.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
