@@ -18,9 +18,9 @@ export const MainView = () => {
       return;
     }
 
-    fetch("https://ghostwriter-movies-1d2fe76cf812.herokuapp.com/movies", {
+    fetch(`${process.env.REACT_APP_API_URL}/movies`), {
       headers: { Authorization: `Bearer ${token}` }
-    })
+    }
       .then((response) => response.json())
       .then((data) => {
         console.log("Movies data: ", data);

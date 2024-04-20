@@ -16,13 +16,13 @@ export const SignupView = () => {
       Birthday: birthday
     };
 
-    fetch("https://ghostwriter-movies-1d2fe76cf812.herokuapp.com/users", {
+    fetch(`${process.env.REACT_APP_API_URL}/users`), {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json"
       }
-    }).then((response) => {
+    }.then((response) => {
       if (response.ok) {
         alert("Signup successful");
         window.location.reload();

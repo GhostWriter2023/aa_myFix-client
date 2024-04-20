@@ -14,13 +14,13 @@ export const LoginView = ({ onLoggedIn }) => {
       secret: password
     };
 
-    fetch("https://ghostwriter-movies-1d2fe76cf812.herokuapp.com/login", {
+    fetch(`${process.env.REACT_APP_API_URL}/login`), {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(data)
-    })
+    }
       .then((response) => response.json())
       .then((data) => {
         console.log("Login response: ", data);
