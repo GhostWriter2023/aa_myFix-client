@@ -28640,7 +28640,8 @@ const SignupView = ()=>{
                 children: [
                     "Birthday:",
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "date",
+                        type: "text" /*date*/ ,
+                        pattern: "\\d{4}-\\d{2}-\\d{2}" /*added in trying to resolve issue*/ ,
                         value: birthday,
                         onChange: (e)=>setBirthday(e.target.value),
                         required: true
@@ -28648,7 +28649,8 @@ const SignupView = ()=>{
                         fileName: "src/components/signup-view/signup-view.jsx",
                         lineNumber: 70,
                         columnNumber: 9
-                    }, undefined)
+                    }, undefined),
+                    "(YYYY-MM-DD)"
                 ]
             }, void 0, true, {
                 fileName: "src/components/signup-view/signup-view.jsx",
@@ -28660,7 +28662,7 @@ const SignupView = ()=>{
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 77,
+                lineNumber: 79,
                 columnNumber: 7
             }, undefined)
         ]
