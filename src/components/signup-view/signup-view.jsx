@@ -15,20 +15,23 @@ export const SignupView = () => {
       Email: email,
       Birthday: birthday
     };
-
-    fetch(`${process.env.REACT_APP_API_URL}/users`), {
+    console.log(`${process.env.REACT_APP_API_URL}/users`)
+    console.log(data)
+    fetch(`${process.env.REACT_APP_API_URL}/users`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json"
       }
-    }.then((response) => {
+    }).then((response) => {
       if (response.ok) {
         alert("Signup successful");
         window.location.reload();
       } else {
         alert("Signup failed");
       }
+    }) .catch((error) => {
+      console.log(error)
     });
   };
 

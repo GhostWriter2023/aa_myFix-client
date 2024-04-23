@@ -14,15 +14,14 @@ export const LoginView = ({ onLoggedIn }) => {
       secret: password
     };
 
-    fetch(`${process.env.REACT_APP_API_URL}/login`), {
+    fetch(`${process.env.REACT_APP_API_URL}/login`, {
       method: "POST",
+      body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    }
-      .then((response) => response.json())
-      .then((data) => {
+      }
+    }) .then((response) => response.json())
+       .then((data) => {
         console.log("Login response: ", data);
         if (data.user) {
             localStorage.setItem("user", JSON.stringify(data.user));
@@ -31,8 +30,7 @@ export const LoginView = ({ onLoggedIn }) => {
         } else {
           alert("No such user - Login failed");
         }
-      })
-      .catch((e) => {
+      }) .catch((e) => {
         alert("Something went wrong");
       });
   };
