@@ -27341,12 +27341,12 @@ const MainView = ()=>{
             console.log("Movies data: ", data);
             const moviesFromApi = data.map((doc)=>{
                 return {
-                    id: data._id,
-                    title: data.Title,
-                    image: data.ImagePath,
-                    description: data.Description,
-                    genre: data.Genre.Name,
-                    director: data.Director.Name
+                    id: doc._id,
+                    title: doc.Title,
+                    image: doc.ImagePath,
+                    description: doc.Description,
+                    genre: doc.Genre.Name,
+                    director: doc.Director.Name
                 };
             });
             setMovies(moviesFromApi);
