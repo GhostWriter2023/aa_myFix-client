@@ -27333,7 +27333,7 @@ const MainView = ()=>{
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
         if (!token) return;
-        fetch(`${"https://ghostwriter-movies-1d2fe76cf812.herokuapp.com"}/movies`), ({
+        fetch(`${"https://ghostwriter-movies-1d2fe76cf812.herokuapp.com"}/movies`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
