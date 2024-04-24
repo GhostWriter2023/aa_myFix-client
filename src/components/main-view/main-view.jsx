@@ -12,7 +12,6 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
-//POSSIBLE CODE requiring troubleshooting
   useEffect(() => {
     if (!token) {
       return;
@@ -24,7 +23,7 @@ export const MainView = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log("Movies data: ", data);
-        const moviesFromApi = data.docs.map((doc) => {
+        const moviesFromApi = data.map((doc) => { //troubleshooting was data.docs.map 
           return {
             id: data._id,
             title: data.Title,

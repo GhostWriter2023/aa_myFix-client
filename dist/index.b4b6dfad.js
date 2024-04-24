@@ -27331,7 +27331,6 @@ const MainView = ()=>{
     const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
     const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
-    //POSSIBLE CODE requiring troubleshooting
     (0, _react.useEffect)(()=>{
         if (!token) return;
         fetch(`${"https://ghostwriter-movies-1d2fe76cf812.herokuapp.com"}/movies`), ({
@@ -27340,7 +27339,7 @@ const MainView = ()=>{
             }
         }).then((response)=>response.json()).then((data)=>{
             console.log("Movies data: ", data);
-            const moviesFromApi = data.docs.map((doc)=>{
+            const moviesFromApi = data.map((doc)=>{
                 return {
                     id: data._id,
                     title: data.Title,
@@ -27364,13 +27363,13 @@ const MainView = ()=>{
                 }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 46,
+                lineNumber: 45,
                 columnNumber: 7
             }, undefined),
             "or",
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {}, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 52,
+                lineNumber: 51,
                 columnNumber: 9
             }, undefined)
         ]
@@ -27386,7 +27385,7 @@ const MainView = ()=>{
                 children: "Logout"
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 60,
+                lineNumber: 59,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
@@ -27394,7 +27393,7 @@ const MainView = ()=>{
                 onBackClick: ()=>setSelectedMovie(null)
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 69,
+                lineNumber: 68,
                 columnNumber: 9
             }, undefined)
         ]
@@ -27410,14 +27409,14 @@ const MainView = ()=>{
                 children: "Logout"
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 80,
+                lineNumber: 79,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: "The list is empty!"
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 89,
+                lineNumber: 88,
                 columnNumber: 9
             }, undefined)
         ]
@@ -27433,7 +27432,7 @@ const MainView = ()=>{
                 children: "Logout"
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 96,
+                lineNumber: 95,
                 columnNumber: 7
             }, undefined),
             movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
@@ -27443,13 +27442,13 @@ const MainView = ()=>{
                     }
                 }, movie.id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 106,
+                    lineNumber: 105,
                     columnNumber: 9
                 }, undefined))
         ]
     }, void 0, true, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 95,
+        lineNumber: 94,
         columnNumber: 5
     }, undefined);
 };
@@ -28445,8 +28444,8 @@ const LoginView = ({ onLoggedIn })=>{
         // this prevents the default behavior of the form which is to reload the entire page
         event.preventDefault();
         const data = {
-            access: username,
-            secret: password
+            Username: username,
+            Password: password //replaced secret with Password
         };
         fetch(`${"https://ghostwriter-movies-1d2fe76cf812.herokuapp.com"}/login`, {
             method: "POST",
@@ -28640,8 +28639,8 @@ const SignupView = ()=>{
                 children: [
                     "Birthday:",
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "text" /*date*/ ,
-                        pattern: "\\d{4}-\\d{2}-\\d{2}" /*added in trying to resolve issue*/ ,
+                        type: "date",
+                        pattern: "\\d{2}-\\d{2}-\\d{4}" /*added in trying to resolve issue*/ ,
                         value: birthday,
                         onChange: (e)=>setBirthday(e.target.value),
                         required: true
@@ -28649,8 +28648,7 @@ const SignupView = ()=>{
                         fileName: "src/components/signup-view/signup-view.jsx",
                         lineNumber: 70,
                         columnNumber: 9
-                    }, undefined),
-                    "(YYYY-MM-DD)"
+                    }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/signup-view/signup-view.jsx",
@@ -28662,7 +28660,7 @@ const SignupView = ()=>{
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 79,
+                lineNumber: 78,
                 columnNumber: 7
             }, undefined)
         ]

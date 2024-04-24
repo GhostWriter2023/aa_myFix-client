@@ -68,13 +68,12 @@ export const SignupView = () => {
       <label>
         Birthday:
         <input
-          type="text" /*date*/
-          pattern="\d{4}-\d{2}-\d{2}" /*added in trying to resolve issue*/
+          type="date"
+          pattern="\d{2}-\d{2}-\d{4}" /*added in trying to resolve issue*/
           value={birthday}
           onChange={(e) => setBirthday(e.target.value)}
           required
         />
-        (YYYY-MM-DD)
       </label>
       <button type="submit">Submit</button>
     </form>

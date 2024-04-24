@@ -10,8 +10,8 @@ export const LoginView = ({ onLoggedIn }) => {
     event.preventDefault();
 
     const data = {
-      access: username,
-      secret: password
+      Username: username, //replaced access with Username
+      Password: password //replaced secret with Password
     };
 
     fetch(`${process.env.REACT_APP_API_URL}/login`, {
