@@ -69,7 +69,6 @@ export const SignupView = () => {
         Birthday:
         <input
           type="date"
-          pattern="\d{2}-\d{2}-\d{4}" /*added in trying to resolve issue*/
           value={birthday}
           onChange={(e) => setBirthday(e.target.value)}
           required
