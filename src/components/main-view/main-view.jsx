@@ -6,6 +6,7 @@ import { SignupView } from "../signup-view/signup-view";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -66,7 +67,7 @@ export const MainView = () => {
 
         ) : selectedMovie ? (
           <Col md={8}>
-            <Button variant="primary" onClick={() => {
+            <Button className="mb-3" variant="primary" onClick={() => {
                 setUser(null);
                 setToken(null);
                 localStorage.clear();
@@ -91,23 +92,25 @@ export const MainView = () => {
           </>
         ) : (
           <>
-            <Button variant="primary" onClick={() => {
+            <Button className="mb-3 w-auto" variant="primary" onClick={() => {
                 setUser(null);
                 setToken(null);
                 localStorage.clear();
               }}>
               Logout
-              </Button>
-            {movies.map((movie) => (
-              <Col className="mb-4" key={movie.id} md={3}>              
-                <MovieCard
-                  movie={movie}
-                  onMovieClick={(newSelectedMovie) => {
-                    setSelectedMovie(newSelectedMovie);
-                  }}
-                />
-              </Col>
-            ))}
+            </Button>
+            <Container className="d-flex flex-wrap">
+              {movies.map((movie) => (
+                <Col className="mb-4" key={movie.id} md={3}>              
+                  <MovieCard
+                    movie={movie}
+                    onMovieClick={(newSelectedMovie) => {
+                      setSelectedMovie(newSelectedMovie);
+                    }}
+                  />
+                </Col>
+              ))}
+            </Container>
           </>
         )}
       </Row>

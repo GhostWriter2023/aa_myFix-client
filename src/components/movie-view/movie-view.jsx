@@ -23,7 +23,7 @@ export const MovieView = ({ movie, onBackClick }) => {
           <span><strong>Director:</strong> </span>
           <span>{movie.director}</span>
         </div>
-        <Button variant="primary">Back</Button>
+        <Button className="mt-3 w-auto" variant="primary">Back</Button>
       </Row>
     );
   };
