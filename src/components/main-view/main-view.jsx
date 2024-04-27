@@ -3,6 +3,9 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -38,77 +41,75 @@ export const MainView = () => {
       });
     }, [token]);
 
-  if (!user) {
     return (
-      <>     
-      <LoginView
-        onLoggedIn={(user, token) => {
-          setUser(user);
-          setToken(token);
-        }} />
-        or
-        <SignupView />        
-      </> 
+      <Row className="justify-content-md-center">
+        {!user ? (
+        <>
+          <Col sm={3}>
+           <h4>Welcome to</h4><br/><h1>myFlix</h1>
+          </Col>
+          <Col sm={3}>
+            <LoginView
+              onLoggedIn={(user, token) => {
+                setUser(user);
+                setToken(token);
+              }}
+            />
+          </Col>
+          <Col sm={3} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <h4>If not a registered user, then fill the fields on the righ to create a new user profile.</h4>
+          </Col>         
+          <Col sm={3}>
+            <SignupView />
+          </Col>
+        </>
+
+        ) : selectedMovie ? (
+          <Col md={8}>
+            <Button variant="primary" onClick={() => {
+                setUser(null);
+                setToken(null);
+                localStorage.clear();
+              }}>
+              Logout
+            </Button>
+            <MovieView
+              movie={selectedMovie}
+              onBackClick={() => setSelectedMovie(null)}
+            />
+          </Col>
+        ) : movies.length === 0 ? (
+          <>
+            <Button variant="primary" onClick={() => {
+                setUser(null);
+                setToken(null);
+                localStorage.clear();
+              }}>
+              Logout
+            </Button>
+            <div>The list is empty!</div>
+          </>
+        ) : (
+          <>
+            <Button variant="primary" onClick={() => {
+                setUser(null);
+                setToken(null);
+                localStorage.clear();
+              }}>
+              Logout
+              </Button>
+            {movies.map((movie) => (
+              <Col className="mb-4" key={movie.id} md={3}>              
+                <MovieCard
+                  movie={movie}
+                  onMovieClick={(newSelectedMovie) => {
+                    setSelectedMovie(newSelectedMovie);
+                  }}
+                />
+              </Col>
+            ))}
+          </>
+        )}
+      </Row>
     );
-  }
-
-  if (selectedMovie) {
-    return (
-      <>
-        <button
-          onClick={() => {
-            setUser(null);
-            setToken(null);
-            localStorage.clear();
-          }}
-        >
-          Logout
-        </button>      
-        <MovieView
-          movie={selectedMovie}
-          onBackClick={() => setSelectedMovie(null)}
-        />
-      </>
-      );
-  }
-
-  if (movies.length === 0) {
-    return (
-      <>
-        <button
-          onClick={() => {
-            setUser(null);
-            setToken(null);
-            localStorage.clear();
-          }}
-        >
-          Logout
-        </button>
-        <div>The list is empty!</div>
-      </>
-    );
-  }
-
-  return (
-    <div>
-      <button
-        onClick={() => {
-          setUser(null);
-          setToken(null);
-          localStorage.clear();
-        }}
-      >
-        Logout
-      </button>
-      {movies.map((movie) => (
-        <MovieCard
-          key={movie.id}
-          movie={movie}
-          onMovieClick={(newSelectedMovie) => {
-            setSelectedMovie(newSelectedMovie);
-          }}
-          />
-      ))}
-    </div>
-  );
-};
+  };
