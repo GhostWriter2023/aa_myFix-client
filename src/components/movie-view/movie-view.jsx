@@ -1,4 +1,4 @@
-import Row from "react-bootstrap/Row";
+import { Button, Row } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
@@ -29,7 +29,9 @@ export const MovieView = ({ movies }) => {
           <span>{movie.director}</span>
         </div>
         <Link to={`/`}>
-          <button className="back-button">Back</button>
+          <Button className="mt-3" variant="primary" style={{ width: '100px' }} type="submit">
+           Back
+          </Button>
         </Link>
       </Row>
     );
