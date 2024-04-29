@@ -13,23 +13,23 @@ export const MovieView = ({ movies }) => {
           <img src={movie.image} />
         </div>
         <div>
-          <span>Title: </span>
-          <span>{movie.title}</span>
+        <h4><span><strong>Title:</strong> </span>
+          <span>{movie.title}</span></h4>
         </div>
         <div>
-          <span>Description: </span>
+          <span><strong>Description:</strong> </span>
           <span>{movie.description}</span>
         </div>
         <div>
-          <span>Genre: </span>
+          <span><strong>Genre:</strong> </span>
           <span>{movie.genre}</span>
         </div>
         <div>
-          <span>Director: </span>
+          <span><strong>Director:</strong> </span>
           <span>{movie.director}</span>
         </div>
         <Link to={`/`}>
-          <button className="mt-3" variant="primary">Back</button>
+          <button className="back-button">Back</button>
         </Link>
       </Row>
     );
