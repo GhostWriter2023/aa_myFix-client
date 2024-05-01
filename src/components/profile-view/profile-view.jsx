@@ -151,7 +151,7 @@ export const ProfileView = ({localUser, movies, token}) => {
             <Col md={5}>
                 <div>
                 <h3>User Profile</h3>
-                <Form onSubmit={handleUpdateUser}>
+                <Form onSubmit={handleUpdate}>
                     <Form.Group controlId="signUpFormUsername">
                         <Form.Label>Username:</Form.Label>
                         <Form.Control

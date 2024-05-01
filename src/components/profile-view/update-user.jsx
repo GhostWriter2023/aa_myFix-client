@@ -3,7 +3,7 @@ import Button  from 'react-bootstrap/Button'
 import  Form  from 'react-bootstrap/Form'
 import Row  from 'react-bootstrap/Row'
 
-export const UpdateUser = ({formData, handleUpdate, handleSubmit, handleDeleteAccount}) => {
+export const UpdateUser = ({formData, handleUpdate, handleSubmit, handleDeregisterUser}) => {
   return (
     <Row>
         <Form onSubmit={handleSubmit}>
@@ -12,45 +12,40 @@ export const UpdateUser = ({formData, handleUpdate, handleSubmit, handleDeleteAc
                 <Form.Label>Username:</Form.Label>
                 <Form.Control
                 type="text"
-                defaultValue={user.Username}
                 minLength={3}
                 value={formData.username}
                 onChange={(e) => handleUpdate(e)}
                 required
-                placeholder='Enter a username'
+                placeholder='Enter new username'
                 />
             </Form.Group>
             <Form.Group className='mb-2'>
                 <Form.Label>Password:
-                <p>Your new password must be at least 8 characters long.</p>
                 </Form.Label>
                 <Form.Control
-                type="password"
-                defaultValue=''                
+                type="password"   
                 minLength={8}
                 value={formData.password}
                 onChange={(e) => handleUpdate(e)}
                 required
-                placeholder='Your new password must be at least 8 characters long'                
+                placeholder='Must be at least 8 characters long'                
                 />
             </Form.Group >
             <Form.Group className='mb-2'>
             <Form.Label> Email: </Form.Label>
             <Form.Control
-                type="email"
-                defaultValue={user.Email}                
+                type="email"          
                 value={formData.email}
                 onChange={(e) => handleUpdate(e)}
                 required
-                placeholder='Enter your email address'                
+                placeholder='Enter new email address'                
             />
             </Form.Group>
             <Form.Group className='mb-4'>
                 <Form.Label>Birthdate:</Form.Label>
                 <Form.Control
-                type="date"
-                defaultValue={user.Birthdate}                  
-                value={formData.birthDate.slice(0, 10)}
+                type="date"           
+                value={formData.birthday/*.slice(0, 10)*/}
                 onChange={(e) => handleUpdate(e)}
                 required
                 placeholder='Enter your birthdate'                 
@@ -58,7 +53,7 @@ export const UpdateUser = ({formData, handleUpdate, handleSubmit, handleDeleteAc
             </Form.Group>
             <Button variant="primary" type="submit" >Submit Changes</Button>
             <Button
-            onClick={() => handleDeleteAccount()}
+            onClick={() => handleDeregisterUser()}
             variant="outline-secondary"
             className="mx-3" >
              Delete account
