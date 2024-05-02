@@ -81,27 +81,27 @@ export const MovieCard = ( {movie, isFavorite}) => {
   const handleAddToFavorites = () => {
     setAddTitle(movie.title);
   };
-  const handleRemoveFromFavorites = () => {
+  const handleRemoveFmFavorites = () => {
     setDelTitle(movie.title);
   }; 
 
   return (
     <>
     <Link to={`/movies/${encodeURIComponent(movie.id)}`} className="movie-view">
-    <Card className="h-100" style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={movie.image} className="object-fit-cover" />
-      <Card.Body>
-        <Card.Title>{movie.title}</Card.Title>
-        <Card.Text>{movie.description}</Card.Text>
-      </Card.Body>
-    </Card>
-    <Card>
-      {isFavorite ? ( 
-      <Button variant="primary"  onClick={handleRemoveFromFavorites}>Remove</Button>
-    ) : (
-      <Button variant="primary" onClick={handleAddToFavorites}>Add</Button>  
-    )}
-    </Card>
+      <Card className="h-100 mt-4" style={{ width: '18rem' }}>
+        <Card.Img variant="top" src={movie.image} className="object-fit-cover" />
+        <Card.Body>
+          <Card.Title>{movie.title}</Card.Title>
+          <Card.Text>{movie.description}</Card.Text>
+        <div>
+          {isFavorite ? ( 
+          <Button variant="primary" style={{ width: '100px' }} onClick={handleRemoveFmFavorites}>Remove</Button>
+        ) : (
+          <Button variant="primary" style={{ width: '100px' }} onClick={handleAddToFavorites}>Add</Button>  
+        )}
+        </div>
+        </Card.Body>
+      </Card>
     </Link>
     </>
   );

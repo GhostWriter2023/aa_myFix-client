@@ -7,7 +7,7 @@ export const UpdateUser = ({formData, handleUpdate, handleSubmit, handleDeregist
   return (
     <Row>
         <Form onSubmit={handleSubmit}>
-            <h3>Update User Information</h3>
+            <h3>Update User Profile</h3>
             <Form.Group className='mb-2'>
                 <Form.Label>Username:</Form.Label>
                 <Form.Control
@@ -54,7 +54,7 @@ export const UpdateUser = ({formData, handleUpdate, handleSubmit, handleDeregist
             <Button variant="primary" type="submit" >Submit Changes</Button>
             <Button
             onClick={() => handleDeregisterUser()}
-            variant="outline-secondary"
+            variant="danger"
             className="mx-3" >
              Delete account
             </Button>
