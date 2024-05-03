@@ -42224,14 +42224,14 @@ const ProfileView = ({ localUser, movies, token })=>{
             const usersFromApi = data.map((resultUser)=>{
                 return {
                     id: resultUser._id,
-                    username: resultUser.username,
-                    password: resultUser.password,
-                    email: resultUser.email,
-                    birthday: resultUser.birthday,
-                    favoriteMovies: resultUser.favoriteMovies
+                    Username: resultUser.Username,
+                    Password: resultUser.Password,
+                    Email: resultUser.Email,
+                    Birthday: resultUser.Birthday,
+                    FavoriteMovies: resultUser.FavoriteMovies
                 };
             });
-            const foundUser = usersFromApi.find((u)=>u.username === localUser.username);
+            const foundUser = usersFromApi.find((u)=>u.Username === localUser.Username);
             if (foundUser) setUser(foundUser);
             //   localStorage.setItem('user', JSON.stringify(user));
             console.log("Profile Saved User: " + JSON.stringify(user));
