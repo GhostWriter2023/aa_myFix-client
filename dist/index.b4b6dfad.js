@@ -27499,6 +27499,7 @@ const MainView = ()=>{
                                             className: "mb-4",
                                             md: 3,
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                                                token: token,
                                                 movie: movie
                                             }, void 0, false, {
                                                 fileName: "src/components/main-view/main-view.jsx",
@@ -27530,6 +27531,7 @@ const MainView = ()=>{
                                 }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                                     md: 8,
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileView.ProfileView), {
+                                        token: token,
                                         user: user
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
@@ -27602,7 +27604,7 @@ const MovieCard = ({ movie, isFavorite })=>{
     const [delTitle, setDelTitle] = (0, _react.useState)("");
     (0, _react.useEffect)(()=>{
         const addToFavorites = ()=>{
-            fetch(`${"https://ghostwriter-movies-1d2fe76cf812.herokuapp.com"}/users/${user.username}/movies/${encodeURIComponent(movie.title)}`, {
+            fetch(`${"https://ghostwriter-movies-1d2fe76cf812.herokuapp.com"}/users/${user.Username}/movies/${encodeURIComponent(movie.id)}`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -27623,7 +27625,7 @@ const MovieCard = ({ movie, isFavorite })=>{
             });
         };
         const removeFromFavorites = ()=>{
-            fetch(`${"https://ghostwriter-movies-1d2fe76cf812.herokuapp.com"}/users/${user.username}/movies/${encodeURIComponent(movie.title)}`, {
+            fetch(`${"https://ghostwriter-movies-1d2fe76cf812.herokuapp.com"}/users/${user.Username}/movies/${encodeURIComponent(movie.id)}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -27657,85 +27659,85 @@ const MovieCard = ({ movie, isFavorite })=>{
         setDelTitle(movie.title);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-            to: `/movies/${encodeURIComponent(movie.id)}`,
-            className: "movie-view",
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
-                className: "h-100 mt-4",
-                style: {
-                    width: "18rem"
-                },
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Img, {
-                        variant: "top",
-                        src: movie.image,
-                        className: "object-fit-cover"
-                    }, void 0, false, {
-                        fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 92,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
+            className: "h-100 mt-4",
+            style: {
+                width: "18rem"
+            },
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Img, {
+                    variant: "top",
+                    src: movie.image,
+                    className: "object-fit-cover"
+                }, void 0, false, {
+                    fileName: "src/components/movie-card/movie-card.jsx",
+                    lineNumber: 91,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                            to: `/movies/${encodeURIComponent(movie.id)}`,
+                            className: "movie-view",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
                                 children: movie.title
                             }, void 0, false, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
                                 lineNumber: 94,
                                 columnNumber: 11
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                                children: movie.description
-                            }, void 0, false, {
-                                fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 95,
-                                columnNumber: 11
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                children: isFavorite ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                                    variant: "primary",
-                                    style: {
-                                        width: "100px"
-                                    },
-                                    onClick: handleRemoveFmFavorites,
-                                    children: "Remove"
-                                }, void 0, false, {
-                                    fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 98,
-                                    columnNumber: 11
-                                }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                                    variant: "primary",
-                                    style: {
-                                        width: "100px"
-                                    },
-                                    onClick: handleAddToFavorites,
-                                    children: "Add"
-                                }, void 0, false, {
-                                    fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 100,
-                                    columnNumber: 11
-                                }, undefined)
-                            }, void 0, false, {
-                                fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 96,
-                                columnNumber: 9
                             }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 93,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 91,
-                columnNumber: 7
-            }, undefined)
-        }, void 0, false, {
+                        }, void 0, false, {
+                            fileName: "src/components/movie-card/movie-card.jsx",
+                            lineNumber: 93,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
+                            children: movie.description
+                        }, void 0, false, {
+                            fileName: "src/components/movie-card/movie-card.jsx",
+                            lineNumber: 96,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            children: isFavorite ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                variant: "primary",
+                                style: {
+                                    width: "100px"
+                                },
+                                onClick: handleRemoveFmFavorites,
+                                children: "Remove"
+                            }, void 0, false, {
+                                fileName: "src/components/movie-card/movie-card.jsx",
+                                lineNumber: 99,
+                                columnNumber: 11
+                            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                variant: "primary",
+                                style: {
+                                    width: "100px"
+                                },
+                                onClick: handleAddToFavorites,
+                                children: "Add"
+                            }, void 0, false, {
+                                fileName: "src/components/movie-card/movie-card.jsx",
+                                lineNumber: 101,
+                                columnNumber: 11
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/components/movie-card/movie-card.jsx",
+                            lineNumber: 97,
+                            columnNumber: 9
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/movie-card/movie-card.jsx",
+                    lineNumber: 92,
+                    columnNumber: 9
+                }, undefined)
+            ]
+        }, void 0, true, {
             fileName: "src/components/movie-card/movie-card.jsx",
             lineNumber: 90,
-            columnNumber: 5
+            columnNumber: 7
         }, undefined)
     }, void 0, false);
 };
@@ -42143,10 +42145,10 @@ var _s = $RefreshSig$();
 const ProfileView = ({ localUser, movies, token })=>{
     _s();
     const storedUser = JSON.parse(localStorage.getItem("user"));
-    const [username, setUsername] = (0, _react.useState)(storedUser.username);
-    const [password, setPassword] = (0, _react.useState)(storedUser.password);
-    const [email, setEmail] = (0, _react.useState)(storedUser.email);
-    const [birthday, setBirthday] = (0, _react.useState)(storedUser.birthday);
+    const [username, setUsername] = (0, _react.useState)(storedUser.Username);
+    const [password, setPassword] = (0, _react.useState)(storedUser.Password);
+    const [email, setEmail] = (0, _react.useState)(storedUser.Email);
+    const [birthday, setBirthday] = (0, _react.useState)(storedUser.Birthday);
     const [user, setUser] = (0, _react.useState)();
     const favoriteMovies = user === undefined ? [] : movies.filter((m)=>user.favoriteMovies.includes(m.title));
     const formData = {
@@ -42157,7 +42159,7 @@ const ProfileView = ({ localUser, movies, token })=>{
     };
     const handleSubmit = (event)=>{
         event.preventDefault(event);
-        fetch(`${"https://ghostwriter-movies-1d2fe76cf812.herokuapp.com"}/users/${user.username}`, {
+        fetch(`${"https://ghostwriter-movies-1d2fe76cf812.herokuapp.com"}/users/${user.Username}`, {
             method: "PUT",
             body: JSON.stringify(formData),
             headers: {
@@ -42196,7 +42198,7 @@ const ProfileView = ({ localUser, movies, token })=>{
         }
     };
     const handleDeregisterUser = ()=>{
-        fetch(`${"https://ghostwriter-movies-1d2fe76cf812.herokuapp.com"}/users/${storedUser.username}`, {
+        fetch(`${"https://ghostwriter-movies-1d2fe76cf812.herokuapp.com"}/users/${storedUser.Username}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -42362,7 +42364,7 @@ const ProfileView = ({ localUser, movies, token })=>{
         columnNumber: 5
     }, undefined);
 };
-_s(ProfileView, "unA/gfNi1SxHK4auyAsHnucaeSo=");
+_s(ProfileView, "EOiUb0s0m559UOqxtrdslg9pbjY=");
 _c = ProfileView;
 var _c;
 $RefreshReg$(_c, "ProfileView");
@@ -42451,7 +42453,7 @@ const FavouriteMovies = ({ user, favoriteMovies })=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                 md: 12,
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                    children: "My Movies"
+                    children: "My Favourite Movies"
                 }, void 0, false, {
                     fileName: "src/components/profile-view/favourite-movies.jsx",
                     lineNumber: 11,
@@ -42469,7 +42471,7 @@ const FavouriteMovies = ({ user, favoriteMovies })=>{
                         md: 4,
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                to: `/movies/${movie.title}`
+                                to: `/users/${user.Username}/movies/${encodeURIComponent(movie.id)}`
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/favourite-movies.jsx",
                                 lineNumber: 17,
@@ -42477,7 +42479,7 @@ const FavouriteMovies = ({ user, favoriteMovies })=>{
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                 movie: movie,
-                                isFavorite: user.favoriteMovies.includes(movie.title)
+                                isFavorite: user.favoriteMovies.includes(movie.id)
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/favourite-movies.jsx",
                                 lineNumber: 18,
@@ -42493,7 +42495,7 @@ const FavouriteMovies = ({ user, favoriteMovies })=>{
             }, void 0, false, {
                 fileName: "src/components/profile-view/favourite-movies.jsx",
                 lineNumber: 13,
-                columnNumber: 5
+                columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
@@ -42555,7 +42557,7 @@ const UpdateUser = ({ formData, handleUpdate, handleSubmit, handleDeregisterUser
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
                             type: "text",
                             minLength: 3,
-                            value: formData.username,
+                            value: formData.Username,
                             onChange: (e)=>handleUpdate(e),
                             required: true,
                             placeholder: "Enter new username"
@@ -42583,7 +42585,7 @@ const UpdateUser = ({ formData, handleUpdate, handleSubmit, handleDeregisterUser
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
                             type: "password",
                             minLength: 8,
-                            value: formData.password,
+                            value: formData.Password,
                             onChange: (e)=>handleUpdate(e),
                             required: true,
                             placeholder: "Must be at least 8 characters long"
@@ -42610,7 +42612,7 @@ const UpdateUser = ({ formData, handleUpdate, handleSubmit, handleDeregisterUser
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
                             type: "email",
-                            value: formData.email,
+                            value: formData.Email,
                             onChange: (e)=>handleUpdate(e),
                             required: true,
                             placeholder: "Enter new email address"
@@ -42637,7 +42639,7 @@ const UpdateUser = ({ formData, handleUpdate, handleSubmit, handleDeregisterUser
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
                             type: "date",
-                            value: formData.birthday /*.slice(0, 10)*/ ,
+                            value: formData.Birthday /*.slice(0, 10)*/ ,
                             onChange: (e)=>handleUpdate(e),
                             required: true,
                             placeholder: "Enter your birthdate"

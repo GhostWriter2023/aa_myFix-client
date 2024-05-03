@@ -14,7 +14,7 @@ export const MovieCard = ( {movie, isFavorite}) => {
 
   useEffect(() => {
     const addToFavorites = () => {
-      fetch(`${process.env.REACT_APP_API_URL}/users/${user.username}/movies/${encodeURIComponent(movie.title)}`,
+      fetch(`${process.env.REACT_APP_API_URL}/users/${user.Username}/movies/${encodeURIComponent(movie.id)}`,
         {
           method: "POST",
           headers: {
@@ -43,7 +43,7 @@ export const MovieCard = ( {movie, isFavorite}) => {
     };
     const removeFromFavorites = () => {
       fetch(
-        `${process.env.REACT_APP_API_URL}/users/${user.username}/movies/${encodeURIComponent(movie.title)}`,
+        `${process.env.REACT_APP_API_URL}/users/${user.Username}/movies/${encodeURIComponent(movie.id)}`,
         {
           method: "DELETE",
           headers: {
@@ -87,11 +87,12 @@ export const MovieCard = ( {movie, isFavorite}) => {
 
   return (
     <>
-    <Link to={`/movies/${encodeURIComponent(movie.id)}`} className="movie-view">
       <Card className="h-100 mt-4" style={{ width: '18rem' }}>
         <Card.Img variant="top" src={movie.image} className="object-fit-cover" />
         <Card.Body>
+          <Link to={`/movies/${encodeURIComponent(movie.id)}`} className="movie-view">
           <Card.Title>{movie.title}</Card.Title>
+          </Link>
           <Card.Text>{movie.description}</Card.Text>
         <div>
           {isFavorite ? ( 
@@ -102,7 +103,6 @@ export const MovieCard = ( {movie, isFavorite}) => {
         </div>
         </Card.Body>
       </Card>
-    </Link>
     </>
   );
 };

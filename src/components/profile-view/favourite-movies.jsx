@@ -8,16 +8,16 @@ export const FavouriteMovies = ({user, favoriteMovies}) => {
   return (
    <Row>
     <Col md={12} >
-        <h3>My Movies</h3>
+        <h3>My Favourite Movies</h3>
     </Col>
-    <Row>
+      <Row>
         {favoriteMovies.map((movie) => {
           return (
             <Col  className="mb-5" key={movie.id} md={4}>
-              <Link to={`/movies/${movie.title}`} />
+              <Link to={`/users/${user.Username}/movies/${encodeURIComponent(movie.id)}`} />
               <MovieCard
                 movie={movie}
-                isFavorite={user.favoriteMovies.includes(movie.title)}
+                isFavorite={user.favoriteMovies.includes(movie.id)}
               />
             </Col>
           );

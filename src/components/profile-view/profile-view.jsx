@@ -8,10 +8,10 @@ import { UpdateUser } from "./update-user";
 export const ProfileView = ({localUser, movies, token}) => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
 
-  const [username, setUsername] = useState(storedUser.username);
-  const [password, setPassword] = useState(storedUser.password);
-  const [email, setEmail] = useState(storedUser.email);
-  const [birthday, setBirthday] = useState(storedUser.birthday);
+  const [username, setUsername] = useState(storedUser.Username);
+  const [password, setPassword] = useState(storedUser.Password);
+  const [email, setEmail] = useState(storedUser.Email);
+  const [birthday, setBirthday] = useState(storedUser.Birthday);
   const [user, setUser]= useState();
   const favoriteMovies = user === undefined ? [] : movies.filter(m => user.favoriteMovies.includes(m.title))
   
@@ -23,7 +23,7 @@ export const ProfileView = ({localUser, movies, token}) => {
     };
     const handleSubmit = (event) => {
       event.preventDefault(event);
-      fetch(`${process.env.REACT_APP_API_URL}/users/${user.username}`, {
+      fetch(`${process.env.REACT_APP_API_URL}/users/${user.Username}`, {
         method: "PUT",
         body: JSON.stringify(formData),
         headers: {
@@ -68,7 +68,7 @@ export const ProfileView = ({localUser, movies, token}) => {
       }
 
     const handleDeregisterUser = () => {
-        fetch(`${process.env.REACT_APP_API_URL}/users/${storedUser.username}`, {
+        fetch(`${process.env.REACT_APP_API_URL}/users/${storedUser.Username}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}`,
             "Content-Type": "application/json"

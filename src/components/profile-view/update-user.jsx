@@ -13,7 +13,7 @@ export const UpdateUser = ({formData, handleUpdate, handleSubmit, handleDeregist
                 <Form.Control
                 type="text"
                 minLength={3}
-                value={formData.username}
+                value={formData.Username}
                 onChange={(e) => handleUpdate(e)}
                 required
                 placeholder='Enter new username'
@@ -25,7 +25,7 @@ export const UpdateUser = ({formData, handleUpdate, handleSubmit, handleDeregist
                 <Form.Control
                 type="password"   
                 minLength={8}
-                value={formData.password}
+                value={formData.Password}
                 onChange={(e) => handleUpdate(e)}
                 required
                 placeholder='Must be at least 8 characters long'                
@@ -35,7 +35,7 @@ export const UpdateUser = ({formData, handleUpdate, handleSubmit, handleDeregist
             <Form.Label> Email: </Form.Label>
             <Form.Control
                 type="email"          
-                value={formData.email}
+                value={formData.Email}
                 onChange={(e) => handleUpdate(e)}
                 required
                 placeholder='Enter new email address'                
@@ -45,7 +45,7 @@ export const UpdateUser = ({formData, handleUpdate, handleSubmit, handleDeregist
                 <Form.Label>Birthdate:</Form.Label>
                 <Form.Control
                 type="date"           
-                value={formData.birthday/*.slice(0, 10)*/}
+                value={formData.Birthday/*.slice(0, 10)*/}
                 onChange={(e) => handleUpdate(e)}
                 required
                 placeholder='Enter your birthdate'                 
