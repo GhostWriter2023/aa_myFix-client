@@ -13,7 +13,7 @@ export const ProfileView = ({localUser, movies, token}) => {
   const [email, setEmail] = useState(storedUser.Email);
   const [birthday, setBirthday] = useState(storedUser.Birthday);
   const [user, setUser]= useState();
-  const favoriteMovies = user === undefined ? [] : movies.filter(m => user.favoriteMovies.includes(m.title))
+  const favoriteMovies = user === undefined ? [] : movies.filter(m => localUser.FavoriteMovies.includes(m.id))
   
   const formData = {
     Username: username,
@@ -99,14 +99,14 @@ export const ProfileView = ({localUser, movies, token}) => {
               const usersFromApi = data.map((resultUser) => {
               return {
                 id: resultUser._id,
-                username: resultUser.username,
-                password: resultUser.password,
-                email: resultUser.email,
-                birthday: resultUser.birthday,
-                favoritemovies: resultUser.favoriteMovies
+                username: resultUser.Username,
+                password: resultUser.Password,
+                email: resultUser.Email,
+                birthday: resultUser.Birthday,
+                favoritemovies: resultUser.FavoriteMovies
               };
             });
-            const foundUser = usersFromApi.find((u) => u.username === localUser.username);
+            const foundUser = usersFromApi.find((u) => u.username === localUser.Username);
             if (foundUser) {
                 setUser(foundUser)
             }

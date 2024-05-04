@@ -131,7 +131,7 @@ export const MainView = () => {
                     <Navigate to="/login" replace />
                   ) : (
                     <Col md={8}>
-                      <ProfileView token={token} user={user} />
+                      <ProfileView movies={movies} token={token} localUser={user} />
                     </Col>
                   )}
                 </>
