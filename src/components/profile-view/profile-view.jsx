@@ -123,12 +123,12 @@ export const ProfileView = ({localUser, movies, token}) => {
     <Container>
         <Row>
             <Col xs={12} sm={4}>
-                <Card className="mb-5">
+                <Card className="mt-5">
                     <Card.Body>
                         <Card.Title>My Profile</Card.Title>
                             <Card.Text>
                                 { user ? (
-                                    <UserInfo name ={user.Username} email={user.Email} />
+                                    <UserInfo name ={user.username} email={user.email} />
                                 ) : (
                                     <p>Loading...</p>
                                 )}
@@ -137,7 +137,7 @@ export const ProfileView = ({localUser, movies, token}) => {
                 </Card>  
             </Col>
             <Col xs={12} sm={8}>
-                <Card className="mb-5"> 
+                <Card className="mt-5 mb-5"> 
                     <Card.Body>
                     <UpdateUser 
                     formData={formData}

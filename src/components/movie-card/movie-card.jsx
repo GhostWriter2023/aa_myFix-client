@@ -87,7 +87,7 @@ export const MovieCard = ( {movie, isFavorite}) => {
 
   return (
     <>
-      <Card className="h-100 mt-4" style={{ width: '18rem' }}>
+      <Card className="h-100" style={{ width: '18rem', marginTop: '5rem' }}>
         <Card.Img variant="top" src={movie.image} className="object-fit-cover" />
         <Card.Body>
           <Link to={`/movies/${encodeURIComponent(movie.id)}`} className="movie-view">
@@ -96,7 +96,7 @@ export const MovieCard = ( {movie, isFavorite}) => {
           <Card.Text>{movie.description}</Card.Text>
         <div>
           {isFavorite ? ( 
-          <Button variant="primary" style={{ width: '100px' }} onClick={handleRemoveFmFavorites}>Remove</Button>
+          <Button variant="danger" style={{ width: '100px' }} onClick={handleRemoveFmFavorites}>Remove</Button>
         ) : (
           <Button variant="primary" style={{ width: '100px' }} onClick={handleAddToFavorites}>Add</Button>  
         )}

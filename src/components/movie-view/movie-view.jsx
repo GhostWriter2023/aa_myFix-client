@@ -1,4 +1,4 @@
-import { Button, Row } from "react-bootstrap";
+import { Button, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
@@ -8,8 +8,9 @@ export const MovieView = ({ movies }) => {
   const movie = movies.find((m) => m.id === movieId);
 
   return (
-      <Row>
-        <div>
+    <Container className="mt-5" >
+        <Row>
+        <div className="d-flex justify-content-center mb-4">
           <img src={movie.image} />
         </div>
         <div>
@@ -34,5 +35,6 @@ export const MovieView = ({ movies }) => {
           </Button>
         </Link>
       </Row>
+    </Container>
     );
   };
