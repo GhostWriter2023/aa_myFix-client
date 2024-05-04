@@ -27531,8 +27531,9 @@ const MainView = ()=>{
                                 }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                                     md: 8,
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileView.ProfileView), {
+                                        movies: movies,
                                         token: token,
-                                        user: user
+                                        localUser: user
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
                                         lineNumber: 134,
@@ -42150,7 +42151,7 @@ const ProfileView = ({ localUser, movies, token })=>{
     const [email, setEmail] = (0, _react.useState)(storedUser.Email);
     const [birthday, setBirthday] = (0, _react.useState)(storedUser.Birthday);
     const [user, setUser] = (0, _react.useState)();
-    const favoriteMovies = user === undefined ? [] : movies.filter((m)=>user.favoriteMovies.includes(m.title));
+    const favoriteMovies = user === undefined ? [] : movies.filter((m)=>localUser.FavoriteMovies.includes(m.id));
     const formData = {
         Username: username,
         Password: password,
@@ -42224,14 +42225,14 @@ const ProfileView = ({ localUser, movies, token })=>{
             const usersFromApi = data.map((resultUser)=>{
                 return {
                     id: resultUser._id,
-                    username: resultUser.username,
-                    password: resultUser.password,
-                    email: resultUser.email,
-                    birthday: resultUser.birthday,
-                    favoritemovies: resultUser.favoriteMovies
+                    username: resultUser.Username,
+                    password: resultUser.Password,
+                    email: resultUser.Email,
+                    birthday: resultUser.Birthday,
+                    favoritemovies: resultUser.FavoriteMovies
                 };
             });
-            const foundUser = usersFromApi.find((u)=>u.username === localUser.username);
+            const foundUser = usersFromApi.find((u)=>u.username === localUser.Username);
             if (foundUser) setUser(foundUser);
             //   localStorage.setItem('user', JSON.stringify(user));
             console.log("Profile Saved User: " + JSON.stringify(user));
@@ -42479,7 +42480,7 @@ const FavouriteMovies = ({ user, favoriteMovies })=>{
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                 movie: movie,
-                                isFavorite: user.favoriteMovies.includes(movie.id)
+                                isFavorite: user.favoritemovies.includes(movie.id)
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/favourite-movies.jsx",
                                 lineNumber: 18,
