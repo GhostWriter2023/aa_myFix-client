@@ -1,10 +1,16 @@
-import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/Button";
+import { Button, Container, Row } from "react-bootstrap";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
-export const MovieView = ({ movie, onBackClick }) => {
-    return (
-      <Row onClick={() => { onBackClick(movie); }}>
-        <div>
+export const MovieView = ({ movies }) => {
+  const { movieId } = useParams();
+
+  const movie = movies.find((m) => m.id === movieId);
+
+  return (
+    <Container className="mt-5" >
+        <Row>
+        <div className="d-flex justify-content-center mb-4">
           <img src={movie.image} />
         </div>
         <div>
@@ -23,7 +29,12 @@ export const MovieView = ({ movie, onBackClick }) => {
           <span><strong>Director:</strong> </span>
           <span>{movie.director}</span>
         </div>
-        <Button className="mt-3 w-auto" variant="primary">Back</Button>
+        <Link to={`/`}>
+          <Button className="mt-3" variant="primary" style={{ width: '100px' }} type="submit">
+           Back
+          </Button>
+        </Link>
       </Row>
+    </Container>
     );
   };

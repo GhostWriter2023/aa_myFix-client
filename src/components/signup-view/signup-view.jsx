@@ -17,8 +17,8 @@ export const SignupView = () => {
       Email: email,
       Birthday: birthday
     };
-    console.log(`${process.env.REACT_APP_API_URL}/users`)
-    console.log(data)
+   // console.log(`${process.env.REACT_APP_API_URL}/users`)
+   // console.log(data)
     fetch(`${process.env.REACT_APP_API_URL}/users`, {
       method: "POST",
       body: JSON.stringify(data),
@@ -33,7 +33,7 @@ export const SignupView = () => {
         alert("Signup failed");
       }
     }) .catch((error) => {
-      console.log(error)
+      console.error(error)
     });
   };
 
