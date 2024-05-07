@@ -15,6 +15,7 @@ export const MainView = () => {
   const [user, setUser] = useState(storedUser? storedUser : null);
   const [token, setToken] = useState(storedToken? storedToken : null); 
   const [movies, setMovies] = useState([]);
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     if (!token) {
@@ -37,17 +38,42 @@ export const MainView = () => {
             director: doc.Director.Name
           };
         });
-
+        localStorage.setItem("movies", JSON.stringify(moviesFromApi));
         setMovies(moviesFromApi);
       });
     }, [token]);
+
+    const handleSearch =(e) => {
+    
+      const query = e.target.value;
+      setQuery(query);
+  
+      const storedMovies = JSON.parse(localStorage.getItem("movies"));
+  
+      //Filter movies by title and genre
+      const filteredMovies = storedMovies.filter((movie) => {
+        // Check if the movie's title or genre includes the search query
+        return (
+          movie.Title.includes(query) ||
+          movie.Genre.some((genre) => genre.includes(query))
+        );
+      })
+  
+    //Update the state with the filtered movies
+    setMovies(filteredMovies);
+  }    
 
     return (
     <BrowserRouter>
       <NavigationBar
         user={user}
+        query={query}
+        handleSearch={handleSearch}
+        movies={movies}
         onLoggedOut={() => {
           setUser(null);
+          setToken(null);
+          localStorage.clear();
         }}
       />
         <Row className="justify-content-md-center">
