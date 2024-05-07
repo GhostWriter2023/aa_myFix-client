@@ -1,8 +1,8 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Navbar, Container, Nav, Form, FormControl, Button, Row, Col } from "react-bootstrap";
+import { Link, Routes, Route } from "react-router-dom";
 import './navigation-bar.scss';
 
-export const NavigationBar = ({ user, onLoggedOut }) => {
+export const NavigationBar = ({ user, query, movies, handleSearch, onLoggedOut }) => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container fluid>
@@ -35,6 +35,17 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
               </>
             )}
           </Nav>
+
+          <Form className="d-flex mx-auto">
+            <FormControl
+              type="search"
+              placeholder="Search"
+              className="mr-2"
+              aria-label="Search"
+              value={query}
+              onChange={handleSearch}
+              />
+            </Form>    
         </Navbar.Collapse>
       </Container>
     </Navbar>
