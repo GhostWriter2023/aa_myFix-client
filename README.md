@@ -1,4 +1,4 @@
-<strong>Objective<strong/>
+Objective
     Using React to build the client-side of a web application focused on movies. This application will allow users to access information about various movies, directors, and genres. Users will have the ability to sign up, update their personal details, and curate a list of their favorite movies.
 
 Context
