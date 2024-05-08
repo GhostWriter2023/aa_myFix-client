@@ -54,8 +54,8 @@ export const MainView = () => {
       const filteredMovies = storedMovies.filter((movie) => {
         // Check if the movie's title or genre includes the search query
         return (
-          movie.Title.includes(query) ||
-          movie.Genre.some((genre) => genre.includes(query))
+          movie.title.includes(query) ||
+          movie.genre.includes(query)
         );
       })
   
