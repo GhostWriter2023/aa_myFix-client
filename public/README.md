@@ -23,6 +23,9 @@ Getting Started
     The application is accessibla at GitHub at the following link:
         https://github.com/GhostWriter2023/aa_myFix-client
 
+    The application is accessibla on the web at the following link:    
+        https://serene-otter-991791.netlify.app
+
 Feedback and Contributions
     Feedback and contributions are welcome. Feel free to submit issues or pull requests to enhance the project.
 
