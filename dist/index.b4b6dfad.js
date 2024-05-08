@@ -27376,7 +27376,7 @@ const MainView = ()=>{
         //Filter movies by title and genre
         const filteredMovies = storedMovies.filter((movie)=>{
             // Check if the movie's title or genre includes the search query
-            return movie.Title.includes(query) || movie.Genre.some((genre)=>genre.includes(query));
+            return movie.title.includes(query) || movie.genre.includes(query);
         });
         //Update the state with the filtered movies
         setMovies(filteredMovies);
