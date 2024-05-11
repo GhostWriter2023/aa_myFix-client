@@ -23,7 +23,7 @@ export const ProfileView = ({localUser, movies, token}) => {
     };
     const handleSubmit = (event) => {
       event.preventDefault(event);
-      fetch(`${process.env.REACT_APP_API_URL}/users/${user.Username}`, {
+      fetch(`${process.env.REACT_APP_API_URL}/users/${user.username}`, {
         method: "PUT",
         body: JSON.stringify(formData),
         headers: {
