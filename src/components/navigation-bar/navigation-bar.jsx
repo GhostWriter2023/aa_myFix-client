@@ -35,16 +35,16 @@ export const NavigationBar = ({ user, query, movies, handleSearch, onLoggedOut }
               </>
             )}
             {user && (
-                <Form className="d-flex mx-auto">
+                <Form className="d-flex flex-column">
                 <FormControl
                   type="search"
-                  placeholder="Search"
+                  placeholder="Searches are case sensitive e.g. Action, Thriller, Comedy, Animation"
                   className="mr-2"
                   aria-label="Search"
                   value={query}
                   onChange={handleSearch}
                 />
-                <p className="text-center text-muted">
+                <p className="text-muted text-center">
                   Title and Genre (Action, Thriller, Comedy, Animation) searches are case sensitive.
                 </p>
                 </Form>
