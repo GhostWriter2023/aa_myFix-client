@@ -45,7 +45,7 @@ export const UpdateUser = ({formData, handleUpdate, handleSubmit, handleDeregist
                 <Form.Label>Birthdate:</Form.Label>
                 <Form.Control
                 type="date"           
-                value={formData.Birthday/*.slice(0, 10)*/}
+                value={formData.Birthday}
                 onChange={(e) => handleUpdate(e)}
                 required
                 placeholder='Enter your birthdate'                 
