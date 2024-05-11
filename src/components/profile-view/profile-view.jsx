@@ -23,7 +23,7 @@ export const ProfileView = ({localUser, movies, token}) => {
     };
     const handleSubmit = (event) => {
       event.preventDefault(event);
-      fetch(`${process.env.REACT_APP_API_URL}/users/${storedUser.Username}`, {
+      fetch(`${process.env.REACT_APP_API_URL}/users/${user.Username}`, {
         method: "PUT",
         body: JSON.stringify(formData),
         headers: {
@@ -58,9 +58,9 @@ export const ProfileView = ({localUser, movies, token}) => {
             case "email":
               setEmail(e.target.value);
               break;
-            case "password":
+/*            case "password":
               setPassword(e.target.value);
-              break;
+              break;*/
             case "date":
               setBirthday(e.target.value);
               default:
