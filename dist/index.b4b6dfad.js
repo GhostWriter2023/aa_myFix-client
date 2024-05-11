@@ -42849,12 +42849,12 @@ const NavigationBar = ({ user, query, movies, handleSearch, onLoggedOut })=>{
                                 ]
                             }, void 0, true),
                             user && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
-                                className: "d-flex flex-column",
+                                className: "d-flex flex-column ms-auto",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.FormControl), {
                                         type: "search",
-                                        placeholder: "Searches are case sensitive e.g. Action, Thriller, Comedy, Animation",
-                                        className: "mr-2",
+                                        placeholder: "Enter search criteria",
+                                        className: "mr-2 mb-2",
                                         "aria-label": "Search",
                                         value: query,
                                         onChange: handleSearch
@@ -42864,8 +42864,8 @@ const NavigationBar = ({ user, query, movies, handleSearch, onLoggedOut })=>{
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                        className: "text-muted text-center",
-                                        children: "Title and Genre (Action, Thriller, Comedy, Animation) searches are case sensitive."
+                                        className: "text-warning text-center mb-0",
+                                        children: "Title and Genre (Action, Thriller, Comedy, Animation) searches are case sensitive"
                                     }, void 0, false, {
                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
                                         lineNumber: 47,
@@ -42875,7 +42875,7 @@ const NavigationBar = ({ user, query, movies, handleSearch, onLoggedOut })=>{
                             }, void 0, true, {
                                 fileName: "src/components/navigation-bar/navigation-bar.jsx",
                                 lineNumber: 38,
-                                columnNumber: 17
+                                columnNumber: 15
                             }, undefined)
                         ]
                     }, void 0, true, {
