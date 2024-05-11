@@ -32,20 +32,21 @@ export const NavigationBar = ({ user, query, movies, handleSearch, onLoggedOut }
                   Profile
                 </Nav.Link>
                 <Nav.Link onClick={onLoggedOut}>Logout</Nav.Link>
-                <Form className="d-flex mx-auto">
-                  <FormControl
-                    type="search"
-                    placeholder="Search"
-                    className="mr-2"
-                    aria-label="Search"
-                    value={query}
-                    onChange={handleSearch}
-                    />
-                </Form>
               </>
             )}
-          </Nav>
-    
+            {user && (
+                <Form className="d-flex mx-auto">
+                <FormControl
+                  type="search"
+                  placeholder="Search"
+                  className="mr-2"
+                  aria-label="Search"
+                  value={query}
+                  onChange={handleSearch}
+                />
+                </Form>
+            )}
+          </Nav>    
         </Navbar.Collapse>
       </Container>
     </Navbar>
