@@ -45,7 +45,7 @@
 
 **Getting Started**<br>
     The application is accessibla on the web at the following link:<br>    
-        https://serene-otter-991791.netlify.app
+        https://myflix-app-2024.netlify.app/login
    
     The application is accessibla at GitHub at the following link:<br>
         https://github.com/GhostWriter2023/aa_myFix-client
