@@ -44,6 +44,9 @@ export const NavigationBar = ({ user, query, movies, handleSearch, onLoggedOut }
                   value={query}
                   onChange={handleSearch}
                 />
+                <p className="text-center text-muted">
+                  Title and Genre (Action, Thriller, Comedy, Animation) searches are case sensitive.
+                </p>
                 </Form>
             )}
           </Nav>    
