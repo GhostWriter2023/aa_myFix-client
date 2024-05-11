@@ -58,9 +58,9 @@ export const ProfileView = ({localUser, movies, token}) => {
             case "email":
               setEmail(e.target.value);
               break;
-/*            case "password":
+            case "password":
               setPassword(e.target.value);
-              break;*/
+              break;
             case "date":
               setBirthday(e.target.value);
               default:
